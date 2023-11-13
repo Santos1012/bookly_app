@@ -1,3 +1,4 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
@@ -19,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
             padding: EdgeInsets.only(left: 20.0, top: 24),
             child: Text(
               "Best Seller",
-              style: Styles.titleMedium,
+              style: Styles.textStyle18,
               textAlign: TextAlign.left,
             ),
           ),
@@ -52,7 +53,28 @@ class BestSellerListViewItem extends StatelessWidget {
               height: 130,
             ),
           ),
-       
+          const SizedBox(
+            width: 20,
+          ),
+          const Column(
+            children: [
+              SizedBox(
+                width: 300,
+                child: Text(
+                  "Harry Potter And the Goblet of Fire",
+                  style: TextStyle(
+                    fontFamily: kGtSectrafina,
+                    fontSize: 30,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+              ),
+              Text(
+                "J.K. Rowling",
+              )
+            ],
+          ),
         ],
       ),
     );
