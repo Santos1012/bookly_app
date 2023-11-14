@@ -13,7 +13,7 @@ abstract class AppRouter {
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
-      )
+      ),
     ],
   );
 }
