@@ -9,11 +9,12 @@ class BookRating extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         const Icon(
           FontAwesomeIcons.solidStar,
           color: Color(0xffFFDD4F),
-          size: 14,
+          size: 13,
         ),
         const SizedBox(
           width: 6.3,
@@ -26,9 +27,12 @@ class BookRating extends StatelessWidget {
         const SizedBox(
           width: 5,
         ),
-        Text(
-          "(2390)",
-          style: Styles.textStyle14.copyWith(color: const Color(0xFF707070)),
+        Opacity(
+          opacity: 0.5,
+          child: Text(
+            "(2390)",
+            style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w500),
+          ),
         )
       ],
     );
