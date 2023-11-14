@@ -29,34 +29,33 @@ class BestSellerListViewItem extends StatelessWidget {
           const SizedBox(
             width: 30,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width - 175,
-                child: Text(
-                  "Harry Potter And the Goblet of Fire",
-                  style: Styles.textStyle20.copyWith(
-                    fontFamily: kGtSectrafina,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 175,
+                  child: Text(
+                    "Harry Potter And the Goblet of Fire",
+                    style: Styles.textStyle20.copyWith(
+                      fontFamily: kGtSectrafina,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
                 ),
-              ),
-              const SizedBox(
-                height: 3,
-              ),
-              const Text(
-                "J.K. Rowling",
-                style: Styles.textStyle14,
-              ),
-              const SizedBox(
-                height: 3,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width - 175,
-                child: Row(
+                const SizedBox(
+                  height: 3,
+                ),
+                const Text(
+                  "J.K. Rowling",
+                  style: Styles.textStyle14,
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -66,9 +65,9 @@ class BestSellerListViewItem extends StatelessWidget {
                     ),
                     const BookRating()
                   ],
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ],
       ),
