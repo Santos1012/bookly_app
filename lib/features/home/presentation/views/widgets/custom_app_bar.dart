@@ -9,26 +9,23 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(30.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(
-            AssetsData.logo,
-            height: 26.1,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset(
+          AssetsData.logo,
+          height: 26.1,
+        ),
+        IconButton(
+          icon: const Icon(
+            FontAwesomeIcons.magnifyingGlass,
+            size: 22,
           ),
-          IconButton(
-            icon: const Icon(
-              FontAwesomeIcons.magnifyingGlass,
-              size: 22,
-            ),
-            onPressed: () {
-              GoRouter.of(context).push(AppRouter.kSearchView);
-            },
-          )
-        ],
-      ),
+          onPressed: () {
+            GoRouter.of(context).push(AppRouter.kSearchView);
+          },
+        )
+      ],
     );
   }
 }

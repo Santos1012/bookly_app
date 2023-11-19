@@ -20,7 +20,7 @@ class BooklyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeatureBooksCubit(gitIt.get<HomeRepoImpl>()),
+          create: (context) => FeatureBooksCubit(gitIt.get<HomeRepoImpl>())..fetchFeatureBooks(),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(gitIt.get<HomeRepoImpl>()),

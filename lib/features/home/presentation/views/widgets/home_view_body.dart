@@ -17,8 +17,14 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(),
-                FeaturedBooksListView(),
+                Padding(
+                  padding: EdgeInsets.all(30.0),
+                  child: CustomAppBar(),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: FeaturedBooksListView(),
+                ),
                 Padding(
                   padding: EdgeInsets.only(left: 30.0, top: 24),
                   child: Text(
@@ -34,7 +40,10 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
-            child: BestSellerListView(),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: BestSellerListView(),
+            ),
           ),
         ],
       ),
