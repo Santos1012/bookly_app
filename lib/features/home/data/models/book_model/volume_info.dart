@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/assets.dart';
 import 'package:equatable/equatable.dart';
 
 import 'image_links.dart';
@@ -72,7 +73,10 @@ class VolumeInfo extends Equatable {
             : PanelizationSummary.fromJson(
                 json['panelizationSummary'] as Map<String, dynamic>),
         imageLinks: json['imageLinks'] == null
-            ? null
+            ? const ImageLinks(
+                smallThumbnail: AssetsData.notAvailableImage,
+                thumbnail: AssetsData.notAvailableImage,
+              )
             : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,

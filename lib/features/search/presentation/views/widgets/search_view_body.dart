@@ -53,7 +53,7 @@ class ResultListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 6,
+      itemCount: 10,
       separatorBuilder: (BuildContext context, int index) {
         return const SizedBox(
           height: 20,

@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ class AlsoBooksListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return const CustomBookImage(
               radius: 6,
+              imageUrl: AssetsData.notAvailableImage,
             );
           },
           separatorBuilder: (context, index) => const SizedBox(
