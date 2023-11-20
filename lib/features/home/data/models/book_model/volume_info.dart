@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:equatable/equatable.dart';
 
 import 'image_links.dart';
