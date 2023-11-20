@@ -24,7 +24,7 @@ class CustomBookImage extends StatelessWidget {
                   AssetsData.notAvailableImage,
                 ),
               ),
-              imageUrl: imageUrl!,
+              imageUrl: imageUrl??"",
               fit: BoxFit.fill,
             ),
           )),
