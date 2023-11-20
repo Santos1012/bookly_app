@@ -74,8 +74,8 @@ class VolumeInfo extends Equatable {
                 json['panelizationSummary'] as Map<String, dynamic>),
         imageLinks: json['imageLinks'] == null
             ? const ImageLinks(
-                smallThumbnail: AssetsData.notAvailableImage,
-                thumbnail: AssetsData.notAvailableImage,
+                smallThumbnail: "https://upload.wikimed",
+                thumbnail: "https://upload.wikimed",
               )
             : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,

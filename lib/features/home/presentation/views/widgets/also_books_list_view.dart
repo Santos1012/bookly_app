@@ -17,7 +17,6 @@ class AlsoBooksListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return const CustomBookImage(
               radius: 6,
-              imageUrl: AssetsData.notAvailableImage,
             );
           },
           separatorBuilder: (context, index) => const SizedBox(
