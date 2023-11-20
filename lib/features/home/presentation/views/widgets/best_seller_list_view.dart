@@ -13,17 +13,21 @@ class BestSellerListView extends StatelessWidget {
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
       builder: (context, state) {
         if (state is NewestBooksSuccessState) {
-          return ListView.separated(
+          return ListView.builder(
+            padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 10,
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(
-                height: 20,
-              );
-            },
+            // separatorBuilder: (BuildContext context, int index) {
+            //   return const SizedBox(
+            //     height: 20,
+            //   );
+            // },
             itemBuilder: (BuildContext context, int index) {
-              return BooksListViewItem(
-                book: state.books[index],
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: BooksListViewItem(
+                  book: state.books[index],
+                ),
               );
             },
           );

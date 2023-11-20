@@ -32,7 +32,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(
         endPoints:
-            "volumes?Filtering=free-ebooks&Sorting=newest&q=subject:flutter",
+            "volumes?Filtering=free-ebooks&Sorting=newest&q=subject:flutter platform",
       );
       List<BookModel> books = [];
       for (var item in data["items"]) {
@@ -52,7 +52,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(
         endPoints:
-            "volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:flutter",
+            "volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:flutter platform",
       );
       List<BookModel> books = [];
       for (var item in data["items"]) {
