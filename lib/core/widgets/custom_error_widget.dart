@@ -11,6 +11,7 @@ class CustomErrorWidget extends StatelessWidget {
       child: Center(
         child: Text(
           errMessage,
+          textAlign: TextAlign.center,
           style: Styles.textStyle18,
         ),
       ),
