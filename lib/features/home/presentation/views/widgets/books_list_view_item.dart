@@ -19,6 +19,7 @@ class BooksListViewItem extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(
           AppRouter.kDetailsView,
+          extra: book,
         );
       },
       child: SizedBox(
@@ -30,7 +31,7 @@ class BooksListViewItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: CachedNetworkImage(
-                  imageUrl: book?.volumeInfo.imageLinks!.thumbnail??"",
+                  imageUrl: book?.volumeInfo.imageLinks!.thumbnail ?? "",
                   errorWidget: (context, url, error) => const Image(
                     image: NetworkImage(AssetsData.notAvailableImage),
                     fit: BoxFit.fill,
