@@ -10,9 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BooksListViewItem extends StatelessWidget {
-  final BookModel? book;
+  final BookModel book;
 
-  const BooksListViewItem({super.key, this.book});
+  const BooksListViewItem({super.key, required this.book});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -31,7 +31,7 @@ class BooksListViewItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: CachedNetworkImage(
-                  imageUrl: book?.volumeInfo.imageLinks!.thumbnail ?? "",
+                  imageUrl: book.volumeInfo.imageLinks!.thumbnail ?? "",
                   errorWidget: (context, url, error) => const Image(
                     image: NetworkImage(AssetsData.notAvailableImage),
                     fit: BoxFit.fill,
@@ -52,9 +52,7 @@ class BooksListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 175,
                     child: Text(
-                      book == null
-                          ? "Harry Potter And the Goblet of Fire"
-                          : book!.volumeInfo.title!,
+                      book.volumeInfo.title!,
                       style: Styles.textStyle20.copyWith(
                         fontFamily: kGtSectrafina,
                       ),
@@ -66,9 +64,7 @@ class BooksListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    book == null
-                        ? "J.K. Rowling"
-                        : book!.volumeInfo.authors?[0] ?? "",
+                    book.volumeInfo.authors?[0] ?? "",
                     style: Styles.textStyle14,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
@@ -85,7 +81,11 @@ class BooksListViewItem extends StatelessWidget {
                         style: Styles.textStyle20
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
-                      const BookRating()
+                      book.volumeInfo.averageRating != null
+                          ? BookRating(
+                              bookModel: book,
+                            )
+                          : const SizedBox(),
                     ],
                   )
                 ],

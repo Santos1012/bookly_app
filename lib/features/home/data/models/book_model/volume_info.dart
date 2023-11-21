@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+import 'dimensions.dart';
 import 'image_links.dart';
 import 'industry_identifier.dart';
 import 'panelization_summary.dart';
@@ -7,6 +8,7 @@ import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
   final String? title;
+  final String? subtitle;
   final List<String>? authors;
   final String? publisher;
   final String? publishedDate;
@@ -14,8 +16,12 @@ class VolumeInfo extends Equatable {
   final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes? readingModes;
   final int? pageCount;
+  final int? printedPageCount;
+  final Dimensions? dimensions;
   final String? printType;
   final List<String>? categories;
+  final num? averageRating;
+  final int? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
@@ -28,6 +34,7 @@ class VolumeInfo extends Equatable {
 
   const VolumeInfo({
     this.title,
+    this.subtitle,
     this.authors,
     this.publisher,
     this.publishedDate,
@@ -35,8 +42,12 @@ class VolumeInfo extends Equatable {
     this.industryIdentifiers,
     this.readingModes,
     this.pageCount,
+    this.printedPageCount,
+    this.dimensions,
     this.printType,
     this.categories,
+    this.averageRating,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -50,7 +61,8 @@ class VolumeInfo extends Equatable {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
-        authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
+        subtitle: json['subtitle'] as String?,
+        authors: (json['authors'] as List<dynamic>).cast<String>(),
         publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
@@ -62,8 +74,14 @@ class VolumeInfo extends Equatable {
             : ReadingModes.fromJson(
                 json['readingModes'] as Map<String, dynamic>),
         pageCount: json['pageCount'] as int?,
+        printedPageCount: json['printedPageCount'] as int?,
+        dimensions: json['dimensions'] == null
+            ? null
+            : Dimensions.fromJson(json['dimensions'] as Map<String, dynamic>),
         printType: json['printType'] as String?,
         categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
+        averageRating: json['averageRating'] as num?,
+        ratingsCount: json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
@@ -72,10 +90,7 @@ class VolumeInfo extends Equatable {
             : PanelizationSummary.fromJson(
                 json['panelizationSummary'] as Map<String, dynamic>),
         imageLinks: json['imageLinks'] == null
-            ? const ImageLinks(
-                smallThumbnail: "",
-                thumbnail: "",
-              )
+            ? null
             : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,
@@ -85,6 +100,7 @@ class VolumeInfo extends Equatable {
 
   Map<String, dynamic> toJson() => {
         'title': title,
+        'subtitle': subtitle,
         'authors': authors,
         'publisher': publisher,
         'publishedDate': publishedDate,
@@ -93,8 +109,12 @@ class VolumeInfo extends Equatable {
             industryIdentifiers?.map((e) => e.toJson()).toList(),
         'readingModes': readingModes?.toJson(),
         'pageCount': pageCount,
+        'printedPageCount': printedPageCount,
+        'dimensions': dimensions?.toJson(),
         'printType': printType,
         'categories': categories,
+        'averageRating': averageRating,
+        'ratingsCount': ratingsCount,
         'maturityRating': maturityRating,
         'allowAnonLogging': allowAnonLogging,
         'contentVersion': contentVersion,
@@ -110,6 +130,7 @@ class VolumeInfo extends Equatable {
   List<Object?> get props {
     return [
       title,
+      subtitle,
       authors,
       publisher,
       publishedDate,
@@ -117,8 +138,12 @@ class VolumeInfo extends Equatable {
       industryIdentifiers,
       readingModes,
       pageCount,
+      printedPageCount,
+      dimensions,
       printType,
       categories,
+      averageRating,
+      ratingsCount,
       maturityRating,
       allowAnonLogging,
       contentVersion,
