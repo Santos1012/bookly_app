@@ -14,7 +14,7 @@ class BookActions extends StatelessWidget {
             textColor: Colors.black,
             leftRadius: 18,
             rightRadius: 0,
-            buttonText: "19.99€",
+            buttonText: "Free",
           ),
         ),
         Expanded(
