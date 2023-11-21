@@ -26,7 +26,6 @@ class _ResultListViewState extends State<ResultListView> {
     return BlocBuilder<SearchResultCubit, SearchResultState>(
       builder: (context, state) {
         if (state is SearchResultSuccessState) {
-          log(state.books.length.toString());
           try {
             return ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
