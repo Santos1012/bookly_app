@@ -32,7 +32,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: 0.5,
           child: Text(
-            "(2390)",
+            "(${bookModel.volumeInfo.ratingsCount??0})",
             style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w500),
           ),
         )

@@ -1,14 +1,17 @@
+import 'package:bookly_app/core/utils/functions/launch_url_function.dart';
 import 'package:bookly_app/core/widgets/custom_button.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BookActions extends StatelessWidget {
-  const BookActions({super.key});
+  final BookModel bookModel;
 
+  const BookActions({super.key, required this.bookModel});
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: CustomButton(
             backGroundColor: Colors.white,
             textColor: Colors.black,
@@ -19,11 +22,17 @@ class BookActions extends StatelessWidget {
         ),
         Expanded(
           child: CustomButton(
-            backGroundColor: Color(0xFFEF8262),
+            backGroundColor: const Color(0xFFEF8262),
             textColor: Colors.white,
             leftRadius: 0,
             rightRadius: 18,
-            buttonText: "Free Preview",
+            buttonText: "Preview",
+            onPressed: () {
+              launchUrlFunction(
+                urlText: bookModel.volumeInfo.previewLink!,
+                context: context,
+              );
+            },
           ),
         ),
       ],
