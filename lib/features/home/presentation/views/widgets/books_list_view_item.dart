@@ -68,8 +68,10 @@ class BooksListViewItem extends StatelessWidget {
                   Text(
                     book == null
                         ? "J.K. Rowling"
-                        : book!.volumeInfo.authors![0],
+                        : book!.volumeInfo.authors?[0] ?? "",
                     style: Styles.textStyle14,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
                   const SizedBox(
                     height: 3,
