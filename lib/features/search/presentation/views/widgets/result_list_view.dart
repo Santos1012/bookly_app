@@ -30,6 +30,7 @@ class _ResultListViewState extends State<ResultListView> {
           try {
             return ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
               itemCount: state.books.length,
               padding: EdgeInsets.zero,
               itemBuilder: (BuildContext context, int index) {
@@ -46,6 +47,7 @@ class _ResultListViewState extends State<ResultListView> {
             return const SizedBox();
           }
         } else if (state is SearchResultFailureState) {
+          log(state.errMsg.toString());
           return CustomErrorWidget(
             errMessage: state.errMsg,
           );

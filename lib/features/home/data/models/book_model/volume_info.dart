@@ -62,7 +62,7 @@ class VolumeInfo extends Equatable {
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
         subtitle: json['subtitle'] as String?,
-        authors: (json['authors'] as List<dynamic>).cast<String>(),
+        authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
         publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
@@ -90,7 +90,7 @@ class VolumeInfo extends Equatable {
             : PanelizationSummary.fromJson(
                 json['panelizationSummary'] as Map<String, dynamic>),
         imageLinks: json['imageLinks'] == null
-            ? null
+            ? const ImageLinks(thumbnail: "http//:")
             : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,

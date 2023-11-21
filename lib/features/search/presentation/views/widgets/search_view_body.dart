@@ -14,6 +14,7 @@ class SearchViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: CustomScrollView(
+        shrinkWrap: false,
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
@@ -41,13 +42,14 @@ class SearchViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
+                const ResultListView(),
               ],
             ),
           ),
-          const SliverFillRemaining(
-            hasScrollBody: true,
-            child: ResultListView(),
-          ),
+          // const SliverFillRemaining(
+          //   hasScrollBody: true,
+          //   child: ResultListView(),
+          // ),
         ],
       ),
     );
