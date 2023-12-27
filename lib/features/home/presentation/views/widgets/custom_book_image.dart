@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class CustomBookImage extends StatelessWidget {
   final double? radius;
   final String? imageUrl;
-
+ 
   const CustomBookImage({super.key, this.radius = 18, this.imageUrl});
   @override
   Widget build(BuildContext context) {
